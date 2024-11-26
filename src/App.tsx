@@ -5,8 +5,12 @@ import { generateClient } from "aws-amplify/data";
 const client = generateClient<Schema>();
 
 function App() {
+    
+  function deleteTodo(id: string) {
+    client.models.Todo.delete({ id })
+  }
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
-
+           onClick={() => deleteTodo(todo.id)}
   useEffect(() => {
     client.models.Todo.observeQuery().subscribe({
       next: (data) => setTodos([...data.items]),
