@@ -4,7 +4,7 @@ backend:
     build:
       commands:
         - npm ci --cache .npm --prefer-offline
-        - npx amplify push --yes  # Assuming you are using Amplify CLI for backend deployment
+        - npx ampx push --yes  # Updated command for Amplify Gen 2 CLI
 frontend:
   phases:
     preBuild:
